@@ -20,6 +20,7 @@ html {
 body {
 	overflow-x: hidden;
 	background: #fff;
+	margin: 0;
 }
 
 .anchor {
@@ -239,9 +240,9 @@ body {
 		margin: 0;
 	}
 	&__buttons{
-		display: flex;
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
 		gap: 1rem;
-		flex-wrap: wrap;
 		button{
 			padding: .5rem 1rem;
 			border-radius: .5rem;
@@ -263,6 +264,12 @@ body {
 		}
 		p {
 			font-size: 1.75rem;
+		}
+	}
+
+	.show-modal{
+		&__buttons{
+			grid-template-columns: repeat(2, 1fr);
 		}
 	}
 

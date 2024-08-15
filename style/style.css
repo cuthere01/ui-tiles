@@ -20,6 +20,7 @@ html {
 body {
   overflow-x: hidden;
   background: #fff;
+  margin: 0;
 }
 
 .anchor {
@@ -213,9 +214,9 @@ body::-webkit-scrollbar-track {
   margin: 0;
 }
 .show-modal__buttons {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
   gap: 1rem;
-  flex-wrap: wrap;
 }
 .show-modal__buttons button {
   padding: 0.5rem 1rem;
@@ -234,5 +235,8 @@ body::-webkit-scrollbar-track {
   }
   .modal-block p {
     font-size: 1.75rem;
+  }
+  .show-modal__buttons {
+    grid-template-columns: repeat(2, 1fr);
   }
 }/*# sourceMappingURL=style.css.map */

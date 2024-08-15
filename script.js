@@ -14,7 +14,7 @@ const modal = () => {
 	}
 
 	function show(current) {
-		modalMap.triggers.forEach((item,i) => {
+		modalMap.triggers.forEach((item, i) => {
 			if(item === current){
 				content[modalMap.sections[i]].style = "display: flex";
 				head[modalMap.sections[i]].style = "display: flex";
