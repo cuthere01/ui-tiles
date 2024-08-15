@@ -23,13 +23,6 @@ const modal = () => {
 
 	function show(current) {
 		modalMap.triggers.forEach((item, i) => {
-			// if(item === current){
-			// 	content[modalMap.sections[i]].style = "display: flex";
-			// 	head[modalMap.sections[i]].style = "display: flex";
-			// } else {
-			// 	content[modalMap.sections[i]].style = "display: none";
-			// 	head[modalMap.sections[i]].style = "display: none";
-			// }
 			if(item === current){
 				content.innerHTML = modalMap.content[i];
 				head.innerHTML = modalMap.headers[i];
