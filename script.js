@@ -10,13 +10,12 @@ const modal = () => {
 
 	const modalMap = {
 		"triggers": ['starwars', 'sociology', 'sample', 'space'],
-		"sections": [0, 1, 2, 3],
 		"headers": ['Звездные войны', 'Социологический опрос', 'Lorem ipsum', 'Факт о космосе'],
 		"content": [
 			'<p>Актерам разрешили подобрать любимый цвет для своих световых мечей. Чаще всего в фильмах можно увидеть оружие голубого, зеленого или красного цвета. При этом у Мэйса Винду, роль которого исполнил Сэмюэль Л. Джексон, меч необычного фиолетового цвета. <br><br> Источник: <a href="https://kudago.com/all/list/interesnye-fakty-o-sage-zvyozdnye-vojny/" target="_blank">https://kudago.com/all/list/interesnye-fakty-o-sage-zvyozdnye-vojny/</a></p>',
-			'<p>Большинство россиян пользуются VPN-сервисами, чтобы заходить на заблокированные в России социальные сети — 60,3% и СМИ — 33,9%. Более 20% используют подобные приложения, чтобы скачивать фильмы и музыку. Для работы VPN подключают 18%, а ради анонимности в сети — 17,4% <br> Источник: <a href="https://adindex.ru/news/researches/2023/12/6/317755.phtml" target="_blank">https://adindex.ru/news/researches/2023/12/6/317755.phtml</a></p>',
+			'<p>Большинство россиян пользуются VPN-сервисами, чтобы заходить на заблокированные в России социальные сети — 60,3% и СМИ — 33,9%. Более 20% используют подобные приложения, чтобы скачивать фильмы и музыку. Для работы VPN подключают 18%, а ради анонимности в сети — 17,4% <br><br> Источник: <a href="https://adindex.ru/news/researches/2023/12/6/317755.phtml" target="_blank">https://adindex.ru/news/researches/2023/12/6/317755.phtml</a></p>',
 			'<p>...dolor sit amet consectetur adipisicing elit. Voluptate distinctio illum ex dignissimos ea ullam totam quam reiciendis perferendis quibusdam, laudantium id ipsam quos eligendi provident labore repellendus autem expedita.</p>',
-			'<p>В созвездии Рака можно заметить алмазную планету, на которой год длится 18 дней. Астрономы ее назвали Янсенн, поскольку она на треть состоит из алмаза. Однако одна ее часть расплавлена и представляет собой раскаленную лаву из углерода.В созвездии Рака можно заметить алмазную планету, на которой год длится 18 дней. Астрономы ее назвали Янсенн, поскольку она на треть состоит из алмаза. Однако одна ее часть расплавлена и представляет собой раскаленную лаву из углерода. <br> Источник: <a href="https://www.techinsider.ru/popmem/1631273-malinovyi-fresh-i-steklyannye-dojdi-samye-neobychnye-fakty-o-kosmose-ili-chto-eshche-skryvaet-ot-nas-neobyyatnaya-vselennaya/" target="_blank">https://www.techinsider.ru/popmem/1631273-malinovyi-fresh-i-steklyannye-dojdi-samye-neobychnye-fakty-o-kosmose-ili-chto-eshche-skryvaet-ot-nas-neobyyatnaya-vselennaya/</a></p>'
+			'<p>В созвездии Рака можно заметить алмазную планету, на которой год длится 18 дней. Астрономы ее назвали Янсенн, поскольку она на треть состоит из алмаза. Однако одна ее часть расплавлена и представляет собой раскаленную лаву из углерода.В созвездии Рака можно заметить алмазную планету, на которой год длится 18 дней. Астрономы ее назвали Янсенн, поскольку она на треть состоит из алмаза. Однако одна ее часть расплавлена и представляет собой раскаленную лаву из углерода. <br><br> Источник: <a href="https://www.techinsider.ru/popmem/1631273-malinovyi-fresh-i-steklyannye-dojdi-samye-neobychnye-fakty-o-kosmose-ili-chto-eshche-skryvaet-ot-nas-neobyyatnaya-vselennaya/" target="_blank">https://www.techinsider.ru/popmem/1631273-malinovyi-fresh-i-steklyannye-dojdi-samye-neobychnye-fakty-o-kosmose-ili-chto-eshche-skryvaet-ot-nas-neobyyatnaya-vselennaya/</a></p>'
 		]
 		
 	}
@@ -54,8 +53,74 @@ const modal = () => {
 
 }
 
+const header = () => {
+
+	const header = document.querySelector('.header');
+
+	const switcher = () => {
+		if (header.getBoundingClientRect().top <= 1) {
+			if(!header.classList.contains('active')) {
+				header.classList.add('active');
+			}
+		}
+		else {
+			header.classList.remove('active');
+		}
+	}
+
+	switcher();
+	document.addEventListener("scroll", () => {
+		switcher();
+	});
+	document.addEventListener("resize", () => {
+		switcher();
+	});
+
+}
+
+const sidebar = () => {
+
+	const sidebar = document.querySelector('.sidebar');
+	const overSide = document.querySelector('.sidebar__block');
+	const linkClose = document.querySelectorAll('.sidebar__desc a');
+	const close = document.querySelector('.sidebar__close');
+	const open = document.querySelector('.side-trigger');
+
+	const off = () => {
+		sidebar.classList.remove('active');
+		document.querySelector('body').style='overflow-y: auto';
+	}
+
+	open.addEventListener('click', () => {
+		document.querySelector('body').style='overflow-y: hidden;';
+		document.querySelector('.sidebar').classList.add('active');
+	});
+	sidebar.addEventListener('click', (e) => {
+		const withinBoundaries = e.composedPath().includes(overSide);
+		if (!withinBoundaries) {
+			off();
+		}
+	});
+	close.addEventListener('click', () => {
+		off();
+	});
+	linkClose.forEach((item)=>{
+		item.addEventListener('click', () => {
+			off();
+		});
+	});
+	// window.addEventListener('resize', () => {
+	// 	if(window.innerWidth > 768 && getComputedStyle(sidebar).display !== 'flex'){
+	// 		off();
+	// 	}
+	// });
+
+}
+
 document.addEventListener('DOMContentLoaded', () => {
 
 	modal();
+	header();
+	sidebar();
 
 })
