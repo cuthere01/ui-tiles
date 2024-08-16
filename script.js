@@ -109,11 +109,6 @@ const sidebar = () => {
 			off();
 		});
 	});
-	// window.addEventListener('resize', () => {
-	// 	if(window.innerWidth > 768 && getComputedStyle(sidebar).display !== 'flex'){
-	// 		off();
-	// 	}
-	// });
 
 }
 
