@@ -112,10 +112,34 @@ const sidebar = () => {
 
 }
 
+const notificator = () => {
+
+	const notificator = document.querySelector('.notificator');
+	const notice = document.querySelectorAll('.notice');
+
+	notice.forEach((item) => {
+		item.addEventListener('click', (e) => {
+			e.preventDefault();
+			notificator.classList.add('active');
+			notice.forEach((item) => {
+				item.style="pointer-events: none";
+			});
+			setTimeout(()=>{
+				notificator.classList.remove('active');
+				notice.forEach((item) => {
+					item.style="pointer-events: all";
+				});
+			}, 3000);
+		});
+	});
+
+}
+
 document.addEventListener('DOMContentLoaded', () => {
 
 	modal();
 	header();
 	sidebar();
+	notificator();
 
 })

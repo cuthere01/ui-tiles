@@ -227,6 +227,7 @@ body::-webkit-scrollbar-track {
   border: none;
   outline: none;
   font-weight: 400;
+  cursor: pointer;
 }
 
 .header {
@@ -362,6 +363,45 @@ body::-webkit-scrollbar-track {
   left: 0;
 }
 
+.notificator {
+  position: fixed;
+  z-index: 200;
+  width: 100%;
+  pointer-events: none;
+  display: flex;
+  justify-content: center;
+  top: -100px;
+}
+.notificator div {
+  box-shadow: 0px 0px 20px 0px rgb(176, 197, 222);
+  background: rgb(0, 125, 94);
+  border-radius: 5rem;
+  padding: 1rem 2rem;
+}
+.notificator div span {
+  font-size: 1.5rem;
+  font-weight: 400;
+  line-height: 120%;
+  color: #fff;
+}
+.notificator.active {
+  animation: myAnim 3s ease 0s 1 normal forwards;
+}
+@keyframes myAnim {
+  0% {
+    top: -100px;
+  }
+  10% {
+    top: 8rem;
+  }
+  90% {
+    top: 8rem;
+  }
+  100% {
+    top: -100px;
+  }
+}
+
 @media (max-width: 768px) {
   .modal-block h3 {
     font-size: 2.25rem;
@@ -388,5 +428,8 @@ body::-webkit-scrollbar-track {
   }
   .sidebar__desc a {
     font-size: 1.75rem;
+  }
+  .notificator div span {
+    font-size: 2rem;
   }
 }/*# sourceMappingURL=style.css.map */
