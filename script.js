@@ -9,7 +9,7 @@ const modal = () => {
 	const head = document.querySelector('.modal-block__head h3');
 
 	const modalMap = {
-		"triggers": ['starwars', 'sociology', 'sample', 'space'],
+		"triggers": ['starwars', 'sociology', 'sample', 'space'], 
 		"headers": ['Звездные войны', 'Социологический опрос', 'Lorem ipsum', 'Факт о космосе'],
 		"content": [
 			'<p>Актерам разрешили подобрать любимый цвет для своих световых мечей. Чаще всего в фильмах можно увидеть оружие голубого, зеленого или красного цвета. При этом у Мэйса Винду, роль которого исполнил Сэмюэль Л. Джексон, меч необычного фиолетового цвета. <br><br> Источник: <a href="https://kudago.com/all/list/interesnye-fakty-o-sage-zvyozdnye-vojny/" target="_blank">https://kudago.com/all/list/interesnye-fakty-o-sage-zvyozdnye-vojny/</a></p>',
@@ -53,6 +53,7 @@ const modal = () => {
 
 }
 
+
 const header = () => {
 
 	const header = document.querySelector('.header');
@@ -77,6 +78,7 @@ const header = () => {
 	});
 
 }
+
 
 const sidebar = () => {
 
@@ -112,28 +114,66 @@ const sidebar = () => {
 
 }
 
+
 const notificator = () => {
 
 	const notificator = document.querySelector('.notificator');
+	const notificatorContent = document.querySelector('.notificator div');
 	const notice = document.querySelectorAll('.notice');
+	const noticeImg = document.createElement('img');
+	const noticeP = document.createElement('p');
+
+	notificatorContent.appendChild(noticeImg);
+	notificatorContent.appendChild(noticeP);
+
+	const NotificatorMap = {
+		"triggers": ['later', 'coins', 'cart', 'event', 'auth', 'phone'],
+		"img": ['clock', 'coin', 'cart', 'sad', 'user', 'phone'],
+		"text": [
+			'Раздел будет готов позже',
+			'Наберите больше баллов',
+			'Корзина пуста',
+			'Конкурс завершен',
+			'Требуется авторизация',
+			'Номер недоступен'
+		]
+		
+	}
+
+	function createContent(current) {
+		NotificatorMap.triggers.forEach((item, i) => {
+			if(item === current){
+				console.log(current)
+				noticeImg.src = './assets/' + NotificatorMap.img[i] + '.svg';
+				noticeP.textContent = NotificatorMap.text[i];
+			} 
+		});
+	}
+
+	// вкл/выкл доступность нотификаторов, при активации/деактивации одного из нотификаторов
+	const disNotice = (dis) => {
+		dis ? notice.forEach((item) => {
+			item.classList.add('dis');
+		}) : notice.forEach((item) => {
+			item.classList.remove('dis');
+		});
+	}
 
 	notice.forEach((item) => {
 		item.addEventListener('click', (e) => {
 			e.preventDefault();
+			createContent(item.getAttribute("data-id"));
 			notificator.classList.add('active');
-			notice.forEach((item) => {
-				item.style="pointer-events: none";
-			});
-			setTimeout(()=>{
+			disNotice(true);
+			setTimeout(() => {
 				notificator.classList.remove('active');
-				notice.forEach((item) => {
-					item.style="pointer-events: all";
-				});
+				disNotice(false);
 			}, 3000);
 		});
 	});
 
 }
+
 
 document.addEventListener('DOMContentLoaded', () => {
 
@@ -142,4 +182,4 @@ document.addEventListener('DOMContentLoaded', () => {
 	sidebar();
 	notificator();
 
-})
+});

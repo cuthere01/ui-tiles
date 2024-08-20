@@ -195,10 +195,10 @@ body::-webkit-scrollbar-track {
   margin: 0;
 }
 
-.show-modal {
-  padding: 3rem 0;
+.main-section {
+  padding: 0 0 3rem;
 }
-.show-modal__content {
+.main-section__content {
   border-radius: 2rem;
   padding: 1.5rem 2rem 2rem;
   background-color: rgb(0, 125, 94);
@@ -206,19 +206,19 @@ body::-webkit-scrollbar-track {
   flex-direction: column;
   gap: 1rem;
 }
-.show-modal__name {
+.main-section__name {
   color: white;
   font-size: 1.75rem;
   font-weight: 500;
   line-height: normal;
   margin: 0;
 }
-.show-modal__buttons {
+.main-section__buttons {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 1rem;
 }
-.show-modal__buttons button {
+.main-section__buttons button {
   padding: 0.5rem 1rem;
   border-radius: 0.5rem;
   background-color: white;
@@ -235,6 +235,7 @@ body::-webkit-scrollbar-track {
   top: 0;
   z-index: 100;
   margin-top: 2rem;
+  margin-bottom: 3rem;
 }
 .header.active .header__content {
   border-radius: 0 0 2rem 2rem;
@@ -373,16 +374,24 @@ body::-webkit-scrollbar-track {
   top: -100px;
 }
 .notificator div {
-  box-shadow: 0px 0px 20px 0px rgb(176, 197, 222);
-  background: rgb(0, 125, 94);
+  box-shadow: 0px 0px 20px 0px rgb(0, 125, 94);
+  background: white;
   border-radius: 5rem;
   padding: 1rem 2rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
 }
-.notificator div span {
+.notificator div p {
   font-size: 1.5rem;
   font-weight: 400;
   line-height: 120%;
-  color: #fff;
+  color: black;
+  margin: 0;
+}
+.notificator div img {
+  width: 20px;
+  height: 20px;
 }
 .notificator.active {
   animation: myAnim 3s ease 0s 1 normal forwards;
@@ -392,14 +401,21 @@ body::-webkit-scrollbar-track {
     top: -100px;
   }
   10% {
-    top: 8rem;
+    top: 5rem;
   }
   90% {
-    top: 8rem;
+    top: 5rem;
   }
   100% {
     top: -100px;
   }
+}
+
+.notice {
+  pointer-events: all;
+}
+.notice.dis {
+  pointer-events: none;
 }
 
 @media (max-width: 768px) {
@@ -409,17 +425,17 @@ body::-webkit-scrollbar-track {
   .modal-block p {
     font-size: 1.75rem;
   }
-  .show-modal__content {
+  .main-section__content {
     gap: 2rem;
   }
-  .show-modal__buttons {
+  .main-section__buttons {
     grid-template-columns: 1fr;
     gap: 2rem;
   }
-  .show-modal__name {
+  .main-section__name {
     font-size: 2.25rem;
   }
-  .show-modal__buttons button {
+  .main-section__buttons button {
     padding: 1rem 1rem;
     font-size: 1.75rem;
   }
@@ -429,7 +445,7 @@ body::-webkit-scrollbar-track {
   .sidebar__desc a {
     font-size: 1.75rem;
   }
-  .notificator div span {
+  .notificator div p {
     font-size: 2rem;
   }
 }/*# sourceMappingURL=style.css.map */
