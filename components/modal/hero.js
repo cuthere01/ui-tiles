@@ -1,15 +1,15 @@
-import modal from './modal.js';
+import overlay from './overlay.js';
 import data from './data.js';
 
-const modalHero = () => {
+const hero = () => {
 
 	const section = document.createElement('section');
 	section.className = 'main-section';
 	document.body.appendChild(section);
 
 	const buttons = () => {
-		return data.triggers.map((item, i) => {
-			return `<button class="openModal" data-id="${item}">${data.headers[i]}</button>`
+		return data.name.map((item, i) => {
+			return `<button class="openModal" data-id="${item}">${data.header[i]}</button>`
 		}).join('');
 		
 	}
@@ -25,7 +25,7 @@ const modalHero = () => {
 		</div>
 	`
 
-	modal();
+	overlay();
 }
 
-export default modalHero;
+export default hero;

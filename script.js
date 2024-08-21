@@ -1,5 +1,5 @@
 
-import modalHero from './components/modal/modalHero.js';
+import modalHero from './components/modal/hero.js';
 import header from './components/header.js';
 import sidebar from './components/sidebar.js';
 import notificator from './components/notificator.js'
