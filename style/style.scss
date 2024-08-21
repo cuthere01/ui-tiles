@@ -19,8 +19,12 @@ html {
 
 body {
 	overflow-x: hidden;
+	overflow-y: auto;
 	background: #fff;
 	margin: 0;
+	&.dis{
+		overflow-y: hidden;
+	}
 }
 
 .anchor {
@@ -135,6 +139,9 @@ body {
 	overflow: hidden;
 	justify-content: center;
 	align-items: center;
+	&.active{
+		display: flex;
+	}
 }
 
 .modal-block {

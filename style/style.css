@@ -19,8 +19,12 @@ html {
 
 body {
   overflow-x: hidden;
+  overflow-y: auto;
   background: #fff;
   margin: 0;
+}
+body.dis {
+  overflow-y: hidden;
 }
 
 .anchor {
@@ -118,6 +122,9 @@ body::-webkit-scrollbar-track {
   overflow: hidden;
   justify-content: center;
   align-items: center;
+}
+.modal-overlay.active {
+  display: flex;
 }
 
 .modal-block {

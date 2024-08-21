@@ -15,15 +15,18 @@ const sidebar = () => {
 		document.querySelector('body').style='overflow-y: hidden;';
 		document.querySelector('.sidebar').classList.add('active');
 	});
+
 	sidebar.addEventListener('click', (e) => {
 		const withinBoundaries = e.composedPath().includes(overSide);
 		if (!withinBoundaries) {
 			off();
 		}
 	});
+
 	close.addEventListener('click', () => {
 		off();
 	});
+	
 	linkClose.forEach((item)=>{
 		item.addEventListener('click', () => {
 			off();
