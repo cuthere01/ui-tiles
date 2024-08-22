@@ -1,6 +1,27 @@
 const header = () => {
 
-	const header = document.querySelector('.header');
+	const header = document.createElement('header');
+	header.className = 'header';
+	document.body.appendChild(header);
+
+	const showContent = () => {
+		return `
+			<div class="container">
+				<div class="header__content">
+					<p class="header__name">header</p>
+					<div class="side-trigger">
+						<span></span>
+						<span></span>
+						<span></span>
+					</div>
+				</div>
+			</div>
+		`
+	}
+
+	header.innerHTML = showContent();
+
+	//const header = document.querySelector('.header');
 
 	const switcher = () => {
 		if (header.getBoundingClientRect().top <= 1) {
