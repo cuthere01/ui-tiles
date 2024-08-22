@@ -11,7 +11,7 @@ const data = {
 		'https://kudago.com/all/list/interesnye-fakty-o-sage-zvyozdnye-vojny/',
 		'https://adindex.ru/news/researches/2023/12/6/317755.phtml',
 		'',
-		'https://www.techinsider.ru/popmem/1631273-malinovyi-fresh-i-steklyannye-dojdi-samye-neobychnye-fakty-o-kosmose-ili-chto-eshche-skryvaet-ot-nas-neobyyatnaya-vselennaya/" target="_blank">https://www.techinsider.ru/popmem/1631273-malinovyi-fresh-i-steklyannye-dojdi-samye-neobychnye-fakty-o-kosmose-ili-chto-eshche-skryvaet-ot-nas-neobyyatnaya-vselennaya/',
+		'https://www.techinsider.ru/popmem/1631273-malinovyi-fresh-i-steklyannye-dojdi-samye-neobychnye-fakty-o-kosmose-ili-chto-eshche-skryvaet-ot-nas-neobyyatnaya-vselennaya/',
 	]
 	
 }

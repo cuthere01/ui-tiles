@@ -30,7 +30,7 @@ const overlay = () => {
 					</div>
 				`
 			} 
-		});
+		}).join('');
 	}
 
 	const switcher = (dis) => {
