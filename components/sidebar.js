@@ -7,7 +7,8 @@ const sidebar = () => {
 	const showContent = () => {
 		return `
 			<div class="sidebar__block">
-				<div class="sidebar__close-wrapper">
+				<div class="sidebar__cap">
+					<h2 class="sidebar__name">Sidebar</h2>
 					<div class="sidebar__close"></div>
 				</div>
 				<div class="sidebar__desc">

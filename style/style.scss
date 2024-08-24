@@ -36,6 +36,16 @@ $primary: rgb(0, 125, 94);
 $darken: darken($primary, 20%);
 $black: #555;
 
+@mixin trans02 {
+	transition: all .2s ease;
+}
+
+@mixin h2 {
+	font-size: 2rem;
+	font-weight: 700;
+	line-height: normal;
+}
+
 body {
 	&::-webkit-scrollbar {
 		width: 0.75rem;
@@ -185,7 +195,7 @@ body {
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		transition: all .2s ease;
+		@include trans02;
 		overflow-y: hidden;
 
 		&::after,
@@ -230,7 +240,7 @@ body {
 }
 
 .main-section{
-	padding: 0 0 3rem;
+	padding: 0 0 4rem;
 
 	&__content{
 		border-radius: 2rem;
@@ -243,9 +253,7 @@ body {
 
 	&__name{
 		color: white;
-		font-size: 1.75rem;
-		font-weight: 500;
-		line-height: normal;
+		@include h2;
 		margin: 0;
 	}
 
@@ -281,11 +289,9 @@ body {
 	}
 
 	&__name {
-		font-size: 1.5rem;
-		font-weight: 400;
+		@include h2;
 		color: black;
 		font-style: normal;
-		line-height: normal;
 		margin: 0;
 	}
 
@@ -298,7 +304,7 @@ body {
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
-		transition: all .2s ease;
+		@include trans02;
 	}
 }
 
@@ -329,8 +335,21 @@ body {
 		}
 	}
 
+	&__cap{
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		gap: 2rem;
+	}
+
+	&__name{
+		@include h2;
+		color: black;
+		margin: 0;
+	}
+
 	&__block {
-		transition: all .2s ease;
+		@include trans02;
 		background: #fff;
 		position: absolute;
 		top: 0;
@@ -338,19 +357,20 @@ body {
 		width: 100%;
 		max-width: fit-content;
 		height: 100%;
-		padding: 5rem 3rem 2rem 3rem;
+		padding: 2rem 3rem;
+		display: flex;
+		flex-direction: column;
+		gap: 2rem;
 	}
 	&__close {
-		position: absolute;
+		position: relative;
 		width: 20px;
 		height: 20px;
-		top: 2rem;
-		right: 2rem;
 		cursor: pointer;
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		transition: all .2s ease;
+		@include trans02;
 		overflow-y: hidden;
 
 		&::after,
@@ -383,7 +403,7 @@ body {
 			line-height: normal;
 			text-transform: uppercase;
 			white-space: nowrap;
-			transition: all .2s ease;
+			@include trans02;
 			text-decoration: none;
 			position: relative;
 			background: #fff;
@@ -395,7 +415,7 @@ body {
 }
 
 .side-trigger {
-	transition: all .2s ease;
+	@include trans02;
 	height: 19px;
 	width: 38px;
 	position: relative;
@@ -471,10 +491,117 @@ body {
 
 .notice{
 	pointer-events: all;
+
 	&.dis{
 		pointer-events: none;
 	}
 }
+
+.accordion {
+	padding-bottom: 4rem;
+
+	&__content{
+		display: flex;
+		flex-direction: column;
+	}
+
+	&__question{
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		gap: 2rem;
+	}
+
+	h2 {
+		@include h2;
+		color: black;
+		margin-bottom: 2.5rem;
+		margin-top: 0;
+	}
+
+	&__block {
+		border-bottom: 1px solid #D9D9D9;
+		padding: 2rem 0;
+		margin: 0;
+		cursor: pointer;
+		display: flex;
+		flex-direction: column;
+
+		&:first-of-type {
+			border-top: 1px solid #D9D9D9;
+		}
+
+		h3 {
+			font-weight: 700;
+			font-size: 1.5rem;
+			margin: 0;
+			width: 95%;
+		}
+	}
+	&__desc {
+		margin: 0;
+		opacity: 0;
+		max-height: 0;
+		@include trans02;
+		pointer-events: none;
+		overflow: hidden;
+
+		p,
+		span {
+			font-weight: 400;
+			font-size: 1.25rem;
+			margin-top: 1.25rem;
+			color: #000000;
+			margin-bottom: 0;
+		}
+
+		&.active {
+			opacity: 1;
+			max-height: max-content;
+			overflow: hidden;
+			@include trans02;
+		}
+	}
+}
+
+.ans-btn {
+	position: relative;
+	width: 24px;
+	height: 24px;
+	cursor: pointer;
+	//transition: opacity ease 0.2s;
+
+	&:before {
+		transform: rotate(0deg);
+	}
+
+	&:after {
+		transform: rotate(90deg);
+	}
+
+	&:before,
+	&:after {
+		content: "";
+		height: 3px;
+		width: 24px;
+		border-radius: 2px;
+		background-color: $primary;
+		position: absolute;
+		@include trans02;
+		top: 11px;
+	}
+
+	&.active{
+		&::before{
+			transform: rotate(45deg);
+		}
+
+		&:after{
+			transform: rotate(135deg);
+		}
+	}
+}
+
 
 @media (max-width: 768px) {
 

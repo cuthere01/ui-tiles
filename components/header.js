@@ -8,7 +8,7 @@ const header = () => {
 		return `
 			<div class="container">
 				<div class="header__content">
-					<p class="header__name">header</p>
+					<p class="header__name">Header</p>
 					<div class="side-trigger">
 						<span></span>
 						<span></span>
@@ -20,8 +20,6 @@ const header = () => {
 	}
 
 	header.innerHTML = showContent();
-
-	//const header = document.querySelector('.header');
 
 	const switcher = () => {
 		if (header.getBoundingClientRect().top <= 1) {
