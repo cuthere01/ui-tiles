@@ -9,20 +9,20 @@ const overlay = () => {
 	const open = document.querySelectorAll('.openModal');
 
 	const showContent = (current) => {
-		return data.name.map((item, i) => {
-			if(item === current){
+		return data.map(item => {
+			if(item.name === current){
 				return `
 					<div class="container modal-block__wrapper">
 						<div class="modal-block">
 							<div class="modal-block__head">
-								<h3>${data.header[i] && data.header[i]}</h3>
+								<h3>${item.header && item.header}</h3>
 								<div class="modal-block__close"></div>
 							</div>
 							<div class="modal-block__content">
 								<div class="modal-block__section">
 									<p>
-										${data.text[i] && data.text[i]}
-										${data.link[i] && `<br/><br/>Источник: <a href="${data.link[i]}" target="_blank">${data.link[i]}</a>`}
+										${item.text && item.text}
+										${item.link && `<br/><br/>Источник: <a href="${item.link}" target="_blank">${item.link}</a>`}
 									</p>
 								</div>
 							</div>

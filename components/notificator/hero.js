@@ -8,8 +8,9 @@ const hero = () => {
 	document.body.appendChild(section);
 
 	const buttons = () => {
-		return data.name.map((item, i) => {
-			return `<button class="notice" data-id="${item}">${data.header[i]}</button>`
+		return data.map((item, i) => {
+			console.log(item)
+			return `<button class="notice" data-id="${item.name}">${item.header ? item.header : `Нотификатор #${i + 1}`}</button>`
 		}).join('');
 		
 	}

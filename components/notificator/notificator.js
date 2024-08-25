@@ -9,12 +9,12 @@ const notificator = () => {
 	const notice = document.querySelectorAll('.notice');
 
 	const showContent = (current) => {
-		return data.name.map((item, i) => {
-			if(item === current){
+		return data.map((item, i) => {
+			if(item.name === current){
 				return `
 					<div>
-						<img src="./assets/${data.img[i]}.svg"/>
-						<p>${data.text[i]}</p>
+						${item.img && `<img src="./assets/${item.img}.svg"/>`}
+						<p>${item.text ? item.text : `Текст нотификатора #${i + 1}`}</p>
 					</div>
 				`
 			}
